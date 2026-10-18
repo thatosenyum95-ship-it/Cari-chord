@@ -98,7 +98,7 @@ function showFingering(name){
   const s=document.createElement('div');s.className='string';
   if(fret===0){const o=document.createElement('span');o.textContent='○';o.style.cssText='position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:13px;color:#d5ffb5';s.append(o)}
   if(fret===-1){const x=document.createElement('span');x.textContent='×';x.style.cssText='position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:13px;color:#ff8585';s.append(x)}
-  if(fret>0){const dot=document.createElement('span');dot.className='finger';dot.style.setProperty('--fret',String(fret-shift+.5));s.append(dot)}
+  if(fret>0){const dot=document.createElement('span');dot.className='finger';dot.style.setProperty('--fret',String(fret-shift-.5));s.append(dot)}
   grid.append(s)
  });
  board.append(grid);
