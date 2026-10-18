@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101114">
+<meta name="description" content="Cari Chord — alat bantu analisis chord lagu dari URL YouTube.">
+<title>Cari Chord — Analisis Lagu</title>
+<style>
+:root{color-scheme:dark;--bg:#101114;--panel:#191b20;--panel2:#20232a;--line:#30343d;--text:#f5f6f8;--muted:#a4a9b4;--accent:#a6f36b;--accent2:#d5ffb5;--red:#ff7777}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#20252b 0%,var(--bg) 48%);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+.wrap{width:min(760px,100%);margin:auto;padding:26px 16px 44px}.top{display:flex;align-items:center;gap:12px;margin-bottom:28px}.logo{display:grid;place-items:center;width:46px;height:46px;border-radius:15px;background:var(--accent);color:#111;font-size:25px;font-weight:900}.brand{font-size:19px;font-weight:800;letter-spacing:-.5px}.subbrand{font-size:12px;color:var(--muted);margin-top:2px}.pill{margin-left:auto;border:1px solid #43533b;color:var(--accent2);border-radius:99px;padding:6px 10px;font-size:11px;white-space:nowrap}
+h1{font-size:clamp(30px,7vw,46px);line-height:1.07;letter-spacing:-1.7px;margin:0 0 12px;font-weight:850}h1 span{color:var(--accent)}.lead{color:var(--muted);line-height:1.65;margin:0 0 24px;font-size:14px}
+.panel{background:rgba(25,27,32,.95);border:1px solid var(--line);border-radius:22px;padding:18px;margin:14px 0;box-shadow:0 12px 40px #0002}.label{display:block;font-size:13px;font-weight:700;margin-bottom:9px}.inputrow{display:flex;gap:8px}.urlinput{flex:1;min-width:0;background:#101216;border:1px solid #3a3e47;border-radius:12px;color:var(--text);padding:14px;font:inherit;font-size:14px;outline:none}.urlinput:focus{border-color:var(--accent)}button{border:0;border-radius:12px;background:var(--accent);color:#10140d;font:inherit;font-weight:800;padding:13px 17px;cursor:pointer;white-space:nowrap}button:active{transform:scale(.98)}button:disabled{opacity:.45;cursor:not-allowed}.hint{font-size:12px;line-height:1.5;color:var(--muted);margin:10px 0 0}.error{color:var(--red);font-size:12px;margin-top:9px;display:none}.sectionhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 12px}.sectionhead h2{font-size:16px;margin:0;letter-spacing:-.3px}.tag{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);border:1px solid var(--line);padding:5px 8px;border-radius:99px}
+.player{width:100%;aspect-ratio:16/9;background:#0a0b0d;border-radius:14px;overflow:hidden;display:grid;place-items:center;color:var(--muted);text-align:center;font-size:13px}.player iframe{width:100%;height:100%;border:0}.emptyicon{font-size:32px;margin-bottom:8px}.status{display:flex;gap:10px;align-items:flex-start;padding:13px;border-radius:13px;background:#26251e;border:1px solid #484333;color:#e6dfc5;font-size:12px;line-height:1.6}.statusicon{font-size:17px}.steps{display:grid;gap:12px}.step{display:flex;gap:12px;align-items:flex-start}.num{flex:0 0 29px;height:29px;border-radius:10px;background:var(--panel2);display:grid;place-items:center;color:var(--accent);font-size:12px;font-weight:800}.step strong{font-size:13px;display:block;margin:1px 0 4px}.step p{margin:0;color:var(--muted);font-size:12px;line-height:1.55}.footer{text-align:center;color:#777e89;font-size:11px;line-height:1.6;margin-top:25px}.hidden{display:none!important}
+@media(max-width:520px){.wrap{padding:20px 13px 34px}.panel{padding:15px;border-radius:18px}.inputrow{flex-direction:column}.inputrow button{width:100%}.pill{font-size:10px}.top{margin-bottom:24px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <div class="logo" aria-hidden="true">♫</div>
+    <div><div class="brand">Cari Chord</div><div class="subbrand">Analisis musik · tanpa AI</div></div>
+    <div class="pill">● PROTOTIPE</div>
+  </header>
+  <h1>Temukan chord<br><span>dari lagu.</span></h1>
+  <p class="lead">Tempel URL YouTube untuk membuka lagu dan menyiapkan alur analisis chord. Targetnya: mengenali perubahan chord gitar pengiring dari intro sampai outro.</p>
+
+  <section class="panel">
+    <label class="label" for="youtubeUrl">URL video YouTube</label>
+    <div class="inputrow">
+      <input id="youtubeUrl" class="urlinput" type="url" inputmode="url" autocomplete="url" placeholder="https://www.youtube.com/watch?v=..." aria-describedby="urlHint urlError">
+      <button id="loadBtn" type="button">Buka lagu ↗</button>
+    </div>
+    <p class="hint" id="urlHint">Terima tautan youtube.com atau youtu.be.</p>
+    <p class="error" id="urlError" role="alert"></p>
+  </section>
+
+  <section id="videoPanel" class="panel hidden">
+    <div class="sectionhead"><h2>Video lagu</h2><span class="tag">YouTube</span></div>
+    <div id="player" class="player"><div><div class="emptyicon">▶</div>Video akan muncul di sini.</div></div>
+    <p class="hint">Putar lagu untuk mendengarkan sambil menyiapkan analisis.</p>
+  </section>
+
+  <section class="panel">
+    <div class="sectionhead"><h2>Status analisis chord</h2><span class="tag">Tahap awal</span></div>
+    <div class="status"><span class="statusicon">ⓘ</span><div><strong>Mesin analisis belum tersambung.</strong><br>GitHub Pages hanya menjalankan file statis. Halaman ini belum dapat membaca audio mentah dari pemutar YouTube, sehingga belum bisa mendeteksi chord secara otomatis. Kita perlu menambahkan pemrosesan audio yang kompatibel sebelum hasil chord dapat ditampilkan.</div></div>
+  </section>
+
+  <section class="panel">
+    <div class="sectionhead"><h2>Alur yang akan dibangun</h2><span class="tag">Tanpa AI</span></div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><div><strong>Ambil sumber audio secara sah</strong><p>Siapkan jalur audio yang bisa diproses; URL video saja tidak memberikan akses langsung ke aliran audio dari browser.</p></div></div>
+      <div class="step"><div class="num">02</div><div><strong>Analisis frekuensi dan harmonik</strong><p>Gunakan Web Audio API, FFT, serta algoritma pencocokan pola nada untuk memperkirakan chord.</p></div></div>
+      <div class="step"><div class="num">03</div><div><strong>Susun chord berdasarkan waktu</strong><p>Deteksi titik perubahan chord agar nantinya bisa disinkronkan dengan lirik dan diagram jari gitar.</p></div></div>
+    </div>
+  </section>
+  <footer class="footer">Dibangun sebagai prototipe web responsif untuk GitHub Pages.<br>Hasil chord otomatis belum aktif pada versi ini.</footer>
+</main>
+<script>
+(() => {
+  const input = document.getElementById('youtubeUrl');
+  const button = document.getElementById('loadBtn');
+  const error = document.getElementById('urlError');
+  const panel = document.getElementById('videoPanel');
+  const player = document.getElementById('player');
+
+  function extractVideoId(raw) {
+    let url;
+    try { url = new URL(raw.trim()); } catch { return null; }
+    const host = url.hostname.toLowerCase().replace(/^www\./, '').replace(/^m\./, '');
+    if (host === 'youtu.be') {
+      const id = url.pathname.split('/').filter(Boolean)[0];
+      return id && /^[A-Za-z0-9_-]{11}$/.test(id) ? id : null;
+    }
+    if (host === 'youtube.com' || host === 'music.youtube.com' || host === 'youtube-nocookie.com') {
+      let id = url.searchParams.get('v');
+      if (!id) {
+        const parts = url.pathname.split('/').filter(Boolean);
+        if (['embed', 'shorts', 'live'].includes(parts[0])) id = parts[1];
+      }
+      return id && /^[A-Za-z0-9_-]{11}$/.test(id) ? id : null;
+    }
+    return null;
+  }
+
+  function loadVideo() {
+    const id = extractVideoId(input.value);
+    if (!id) {
+      error.textContent = 'URL tidak valid. Tempel tautan video YouTube yang benar.';
+      error.style.display = 'block';
+      return;
+    }
+    error.style.display = 'none';
+    panel.classList.remove('hidden');
+    player.innerHTML = '';
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id);
+    iframe.title = 'Pemutar video YouTube';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    iframe.allowFullscreen = true;
+    player.appendChild(iframe);
+    panel.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  button.addEventListener('click', loadVideo);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') loadVideo(); });
+})();
+</script>
+</body>
+</html>
