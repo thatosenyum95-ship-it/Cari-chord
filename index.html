@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101114"><meta name="description" content="Analisis chord lagu tanpa AI di browser"><title>Cari Chord — Tanpa AI</title>
 <style>
-:root{color-scheme:dark;--bg:#101114;--panel:#191b20;--line:#30343d;--text:#f5f6f8;--muted:#a4a9b4;--accent:#a6f36b;--soft:#22252c;--red:#ff8585}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#20252b 0%,var(--bg) 50%);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}.wrap{width:min(740px,100%);margin:auto;padding:20px 13px 40px}.top{display:flex;align-items:center;gap:11px;margin-bottom:25px}.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--accent);color:#111;font-size:24px;font-weight:900}.brand{font-size:18px;font-weight:850}.sub{font-size:12px;color:var(--muted);margin-top:2px}.pill{margin-left:auto;border:1px solid #43533b;color:#d5ffb5;border-radius:99px;padding:6px 9px;font-size:10px}h1{font-size:clamp(31px,7vw,45px);line-height:1.06;letter-spacing:-1.5px;margin:0 0 11px}h1 span{color:var(--accent)}.lead,.hint{color:var(--muted);line-height:1.6;font-size:13px}.lead{margin:0 0 22px}.hint{font-size:12px;margin:9px 0 0}.panel{background:#191b20;border:1px solid var(--line);border-radius:19px;padding:15px;margin:13px 0}.head{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:12px}.head h2{font-size:15px;margin:0}.tag{font-size:10px;color:var(--muted);border:1px solid var(--line);padding:5px 8px;border-radius:99px}.label{display:block;font-size:13px;font-weight:750;margin-bottom:8px}.row{display:flex;gap:8px}.field{flex:1;min-width:0;background:#101216;border:1px solid #3a3e47;border-radius:12px;color:var(--text);padding:13px;font:inherit;font-size:14px;outline:none}.field:focus{border-color:var(--accent)}button{border:0;border-radius:12px;background:var(--accent);color:#10140d;font:inherit;font-size:13px;font-weight:850;padding:12px 14px;cursor:pointer}button:disabled{opacity:.45}.secondary{background:var(--soft);border:1px solid #3a3e47;color:var(--text)}.error{color:var(--red);font-size:12px;margin-top:8px;display:none}.hidden{display:none!important}.player{aspect-ratio:16/9;background:#08090b;border-radius:13px;overflow:hidden;margin-top:13px}.player iframe{width:100%;height:100%;border:0}.filebox{display:flex;align-items:center;gap:11px;border:1px dashed #4a505b;background:#111318;border-radius:14px;padding:13px;cursor:pointer}.fileicon{width:40px;height:40px;flex:0 0 40px;display:grid;place-items:center;background:#282d34;border-radius:12px;font-size:20px}.filecopy{flex:1;min-width:0}.filecopy strong{font-size:13px;display:block;overflow-wrap:anywhere}.filecopy small{font-size:11px;color:var(--muted);display:block;margin-top:3px;line-height:1.45}.filebox input{display:none}.status{display:flex;gap:9px;padding:12px;border-radius:12px;background:#25251f;border:1px solid #454333;color:#e6dfc5;font-size:12px;line-height:1.55;margin-top:12px}.status.good{background:#1c291b;border-color:#354a2f;color:#dff4d5}.status.bad{background:#2d1d1e;border-color:#583336;color:#ffdada}.progress{height:5px;background:#2a2d34;border-radius:99px;overflow:hidden;margin-top:12px}.progress div{height:100%;width:0;background:var(--accent)}.audio{width:100%;margin-top:12px}.chords{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:13px}.chord{border:1px solid #343943;border-radius:13px;padding:11px 8px;background:#121419;min-width:0}.chord strong{font-size:22px;color:#d5ffb5;display:block}.chord small,.chord time{display:block;color:var(--muted);font-size:11px;margin-top:5px}.chord time{color:#d1d5dc}.chord button{width:100%;margin-top:8px;padding:8px 3px;font-size:11px}.foot{text-align:center;color:#777e89;font-size:11px;line-height:1.6;margin-top:22px}@media(max-width:520px){.wrap{padding:18px 12px 30px}.panel{padding:13px}.row{flex-direction:column}.row button{width:100%}.chords{grid-template-columns:repeat(2,minmax(0,1fr))}.pill{font-size:9px}}
+:root{color-scheme:dark;--bg:#101114;--panel:#191b20;--line:#30343d;--text:#f5f6f8;--muted:#a4a9b4;--accent:#a6f36b;--soft:#22252c;--red:#ff8585}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#20252b 0%,var(--bg) 50%);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}.wrap{width:min(740px,100%);margin:auto;padding:20px 13px 40px}.top{display:flex;align-items:center;gap:11px;margin-bottom:25px}.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--accent);color:#111;font-size:24px;font-weight:900}.brand{font-size:18px;font-weight:850}.sub{font-size:12px;color:var(--muted);margin-top:2px}.pill{margin-left:auto;border:1px solid #43533b;color:#d5ffb5;border-radius:99px;padding:6px 9px;font-size:10px}h1{font-size:clamp(31px,7vw,45px);line-height:1.06;letter-spacing:-1.5px;margin:0 0 11px}h1 span{color:var(--accent)}.lead,.hint{color:var(--muted);line-height:1.6;font-size:13px}.lead{margin:0 0 22px}.hint{font-size:12px;margin:9px 0 0}.panel{background:#191b20;border:1px solid var(--line);border-radius:19px;padding:15px;margin:13px 0}.head{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:12px}.head h2{font-size:15px;margin:0}.tag{font-size:10px;color:var(--muted);border:1px solid var(--line);padding:5px 8px;border-radius:99px}.label{display:block;font-size:13px;font-weight:750;margin-bottom:8px}.row{display:flex;gap:8px}.field{flex:1;min-width:0;background:#101216;border:1px solid #3a3e47;border-radius:12px;color:var(--text);padding:13px;font:inherit;font-size:14px;outline:none}.field:focus{border-color:var(--accent)}button{border:0;border-radius:12px;background:var(--accent);color:#10140d;font:inherit;font-size:13px;font-weight:850;padding:12px 14px;cursor:pointer}button:disabled{opacity:.45}.secondary{background:var(--soft);border:1px solid #3a3e47;color:var(--text)}.error{color:var(--red);font-size:12px;margin-top:8px;display:none}.hidden{display:none!important}.player{aspect-ratio:16/9;background:#08090b;border-radius:13px;overflow:hidden;margin-top:13px}.player iframe{width:100%;height:100%;border:0}.filebox{display:flex;align-items:center;gap:11px;border:1px dashed #4a505b;background:#111318;border-radius:14px;padding:13px;cursor:pointer}.fileicon{width:40px;height:40px;flex:0 0 40px;display:grid;place-items:center;background:#282d34;border-radius:12px;font-size:20px}.filecopy{flex:1;min-width:0}.filecopy strong{font-size:13px;display:block;overflow-wrap:anywhere}.filecopy small{font-size:11px;color:var(--muted);display:block;margin-top:3px;line-height:1.45}.filebox input{display:none}.status{display:flex;gap:9px;padding:12px;border-radius:12px;background:#25251f;border:1px solid #454333;color:#e6dfc5;font-size:12px;line-height:1.55;margin-top:12px}.status.good{background:#1c291b;border-color:#354a2f;color:#dff4d5}.status.bad{background:#2d1d1e;border-color:#583336;color:#ffdada}.progress{height:5px;background:#2a2d34;border-radius:99px;overflow:hidden;margin-top:12px}.progress div{height:100%;width:0;background:var(--accent)}.audio{width:100%;margin-top:12px}.livebox{display:flex;align-items:center;gap:14px;background:#111a10;border:1px solid #43533b;border-radius:15px;padding:14px;margin-top:12px}.liveName{font-size:36px;line-height:1;color:#d5ffb5;font-weight:900;min-width:76px}.liveMeta{font-size:12px;color:var(--muted);line-height:1.5}.fingers{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:12px;border:1px solid #414650;border-radius:10px;overflow:hidden}.string{position:relative;height:102px;background:#15171c;border-right:1px solid #646a75}.string:last-child{border-right:0}.string:before,.string:after{content:"";position:absolute;left:0;right:0;height:1px;background:#646a75}.string:before{top:25%}.string:after{top:50%;box-shadow:0 25px #646a75}.finger{position:absolute;left:50%;transform:translateX(-50%);top:calc(var(--fret)*25% - 6px);width:14px;height:14px;border-radius:50%;background:var(--accent);z-index:1}.stringLabel{display:flex;justify-content:space-around;color:var(--muted);font-size:10px;margin-top:5px}.fretTitle{font-size:12px;font-weight:750;margin-top:12px}.chords{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:13px}.chord{border:1px solid #343943;border-radius:13px;padding:11px 8px;background:#121419;min-width:0}.chord strong{font-size:22px;color:#d5ffb5;display:block}.chord small,.chord time{display:block;color:var(--muted);font-size:11px;margin-top:5px}.chord time{color:#d1d5dc}.chord button{width:100%;margin-top:8px;padding:8px 3px;font-size:11px}.foot{text-align:center;color:#777e89;font-size:11px;line-height:1.6;margin-top:22px}@media(max-width:520px){.wrap{padding:18px 12px 30px}.panel{padding:13px}.row{flex-direction:column}.row button{width:100%}.chords{grid-template-columns:repeat(2,minmax(0,1fr))}.pill{font-size:9px}}
 </style></head><body><main class="wrap">
 <header class="top"><div class="logo">♫</div><div><div class="brand">Cari Chord</div><div class="sub">Analisis musik · tanpa AI</div></div><div class="pill">BETA</div></header>
 <h1>Temukan chord<br><span>dari lagu.</span></h1><p class="lead">Mesin analisis frekuensi menggunakan algoritma DSP biasa. Tanpa AI, tanpa API AI, dan file diproses langsung di perangkatmu.</p>
 <section class="panel"><div class="head"><h2>1. URL YouTube</h2><span class="tag">Pemutar video</span></div><label class="label" for="yt">Tautan lagu</label><div class="row"><input id="yt" class="field" type="url" placeholder="https://youtube.com/watch?v=..." inputmode="url"><button id="openYt">Buka lagu ↗</button></div><p class="hint">URL bisa membuka videonya, tetapi YouTube embed tidak memberikan akses audio mentah ke JavaScript. Untuk analisis di halaman ini, pilih file audio yang boleh kamu proses.</p><p id="urlError" class="error"></p><div id="videoPanel" class="hidden"><div id="player" class="player"></div></div></section>
 <section class="panel"><div class="head"><h2>2. Analisis audio</h2><span class="tag">FFT + pencocokan chord</span></div><label class="filebox" for="audioFile"><span class="fileicon">♫</span><span class="filecopy"><strong id="fileName">Pilih file audio dari perangkat</strong><small>MP3, WAV, M4A, OGG atau format yang didukung browser.</small></span><button type="button" id="choose" class="secondary">Pilih</button><input id="audioFile" type="file" accept="audio/*"></label><p class="hint">Audio tidak diunggah ke server. Akurasi dipengaruhi vokal dan instrumen yang bercampur.</p><audio id="audio" class="audio hidden" controls></audio><div class="row" style="margin-top:12px"><button id="analyze" disabled style="flex:1">Analisis chord</button><button id="reset" class="secondary">Reset</button></div><div id="progress" class="progress hidden"><div id="bar"></div></div><div id="status" class="status"><span>ⓘ</span><div id="statusText">Pilih file audio untuk mulai. Hasil adalah perkiraan matematis, bukan transkripsi sempurna.</div></div></section>
-<section id="results" class="panel hidden"><div class="head"><h2>3. Hasil chord</h2><button id="copy" class="secondary">Salin hasil</button></div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><div><div class="hint" style="margin:0">Nada dasar perkiraan</div><strong id="key" style="font-size:22px">—</strong></div><span id="duration" class="hint"></span></div><div id="chords" class="chords"></div></section>
+<section id="results" class="panel hidden"><div class="head"><h2>3. Hasil chord</h2><button id="copy" class="secondary">Salin hasil</button></div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><div><div class="hint" style="margin:0">Nada dasar perkiraan</div><strong id="key" style="font-size:22px">—</strong></div><span id="duration" class="hint"></span></div><div class="livebox"><div id="liveName" class="liveName">—</div><div><strong id="liveTitle">Chord saat ini</strong><div id="liveMeta" class="liveMeta">Putar audio setelah analisis untuk mengikuti perubahan chord.</div></div></div><div class="fretTitle">Diagram jari gitar</div><div id="fretboard"></div><div id="chords" class="chords"></div></section>
 <section class="panel"><div class="head"><h2>Cara kerja</h2><span class="tag">Tanpa machine learning</span></div><p class="hint">1. FFT mengukur spektrum audio. 2. Frekuensi dipetakan ke 12 kelas nada. 3. Algoritma membandingkan pola dengan triad mayor/minor. 4. Perubahan yang berdekatan digabung menjadi chord bertimestamp.</p></section>
 <footer class="foot">GitHub Pages · JavaScript + Web Audio API · tanpa AI<br>Analisis URL YouTube langsung butuh sumber audio yang bisa diakses secara sah.</footer></main>
 <script>
@@ -23,14 +23,113 @@ $('audioFile').onchange=()=>{const f=$('audioFile').files[0];if(!f)return;file=f
 $('reset').onclick=()=>{file=null;$('audioFile').value='';$('fileName').textContent='Pilih file audio dari perangkat';$('analyze').disabled=true;$('results').classList.add('hidden');$('progress').classList.add('hidden');$('audio').pause();$('audio').removeAttribute('src');$('audio').load();$('audio').classList.add('hidden');if(url)URL.revokeObjectURL(url);url=null;segments=[];status('Pilih file audio untuk mulai. Hasil adalah perkiraan matematis, bukan transkripsi sempurna.')};
 function fft(re,im){const n=re.length;for(let i=1,j=0;i<n;i++){let b=n>>1;for(;j&b;b>>=1)j^=b;j^=b;if(i<j){[re[i],re[j]]=[re[j],re[i]];[im[i],im[j]]=[im[j],im[i]]}}for(let len=2;len<=n;len<<=1){const a=-2*Math.PI/len,wr0=Math.cos(a),wi0=Math.sin(a);for(let i=0;i<n;i+=len){let wr=1,wi=0;for(let j=0;j<len/2;j++){const x=i+j,y=x+len/2,vr=re[y]*wr-im[y]*wi,vi=re[y]*wi+im[y]*wr,ur=re[x],ui=im[x];re[x]=ur+vr;im[x]=ui+vi;re[y]=ur-vr;im[y]=ui-vi;const nr=wr*wr0-wi*wi0;wi=wr*wi0+wi*wr0;wr=nr}}}}
 const templates=[];for(let r=0;r<12;r++)for(const minor of [false,true]){const t=Array(12).fill(0);for(const i of(minor?[0,3,7]:[0,4,7]))t[(r+i)%12]=1;templates.push({name:notes[r]+(minor?'m':''),root:r,t})}
-function analyze(samples,sr){const N=4096,hop=2048,frames=Math.floor((samples.length-N)/hop)+1;if(frames<1)throw Error('Audio terlalu pendek untuk dianalisis.');const re=new Float64Array(N),im=new Float64Array(N),win=new Float64Array(N),raw=[];for(let i=0;i<N;i++)win[i]=.5-.5*Math.cos(2*Math.PI*i/(N-1));
-for(let f=0;f<frames;f++){const off=f*hop;for(let i=0;i<N;i++){re[i]=(samples[off+i]||0)*win[i];im[i]=0}fft(re,im);const c=Array(12).fill(0);for(let k=2;k<N/2;k++){const hz=k*sr/N;if(hz<65||hz>1500)continue;const mag=Math.hypot(re[k],im[k]);if(mag<.00001)continue;const m=69+12*Math.log2(hz/440),n=Math.round(m),d=Math.abs(m-n);if(d>.42)continue;c[(n%12+12)%12]+=Math.sqrt(mag)/(1+d*5)}const sum=c.reduce((a,b)=>a+b,0);raw.push(sum?c.map(v=>v/sum):c);if(f%10===0){$('bar').style.width=Math.round(f/frames*90)+'%';if(f%50===0)status('Menganalisis audio… '+Math.round(f/frames*100)+'%')}} 
-const labels=[];for(let f=0;f<raw.length;f++){const v=Array(12).fill(0);let n=0;for(let j=Math.max(0,f-1);j<=Math.min(raw.length-1,f+1);j++){for(let p=0;p<12;p++)v[p]+=raw[j][p];n++}for(let p=0;p<12;p++)v[p]/=n;let norm=Math.sqrt(v.reduce((s,x)=>s+x*x,0))||1,best=templates[0],score=-1;for(const t of templates){let dot=0;for(let p=0;p<12;p++)dot+=v[p]*t.t[p];const sc=dot/(norm*Math.sqrt(3));if(sc>score){score=sc;best=t}}labels.push(best.name)}
-let out=[],start=0;for(let i=1;i<=labels.length;i++){if(i===labels.length||labels[i]!==labels[start]){out.push({name:labels[start],start:start*hop/sr,end:i*hop/sr});start=i}}
-for(let i=0;i<out.length;i++){if(out.length>1&&out[i].end-out[i].start<.55){const j=i===0?1:i===out.length-1?i-1:out[i-1].end-out[i-1].start>=out[i+1].end-out[i+1].start?i-1:i+1;out[j].start=Math.min(out[j].start,out[i].start);out[j].end=Math.max(out[j].end,out[i].end);out.splice(i,1);i=-1}}
-const merged=[];for(const s of out){if(merged.length&&merged[merged.length-1].name===s.name)merged[merged.length-1].end=s.end;else merged.push({...s})}return{segments:merged,duration:samples.length/sr}}
+function analyze(samples,sr){
+const N=4096,hop=1024,frames=Math.floor((samples.length-N)/hop)+1;
+if(frames<1)throw Error('Audio terlalu pendek untuk dianalisis.');
+const re=new Float64Array(N),im=new Float64Array(N),win=new Float64Array(N),raw=[];
+for(let i=0;i<N;i++)win[i]=.5-.5*Math.cos(2*Math.PI*i/(N-1));
+for(let f=0;f<frames;f++){
+ const off=f*hop;for(let i=0;i<N;i++){re[i]=(samples[off+i]||0)*win[i];im[i]=0}fft(re,im);
+ const c=Array(12).fill(0);
+ for(let k=2;k<N/2;k++){
+  const hz=k*sr/N;if(hz<65||hz>1400)continue;
+  const mag=Math.hypot(re[k],im[k]);if(mag<.00001)continue;
+  const midi=69+12*Math.log2(hz/440),nn=Math.round(midi),d=Math.abs(midi-nn);if(d>.42)continue;
+  const pc=(nn%12+12)%12;
+  // Give low-register notes more influence: accompaniment bass/root is often more stable than vocal harmonics.
+  const bassWeight=hz<260?1.55:hz<520?1.12:.82;
+  c[pc]+=Math.sqrt(mag)*bassWeight/(1+d*5);
+ }
+ const sum=c.reduce((a,b)=>a+b,0);raw.push(sum?c.map(v=>v/sum):c);
+ if(f%18===0){$('bar').style.width=Math.round(f/frames*90)+'%';if(f%72===0)status('Menganalisis progresi chord… '+Math.round(f/frames*100)+'%')}
+}
+// Smooth the chroma timeline to prevent flickering on individual vocal notes.
+const labels=[],confidence=[];
+for(let f=0;f<raw.length;f++){
+ const v=Array(12).fill(0);let n=0;
+ for(let j=Math.max(0,f-3);j<=Math.min(raw.length-1,f+3);j++){const w=1/(1+Math.abs(j-f)*.55);for(let p=0;p<12;p++)v[p]+=raw[j][p]*w;n+=w}
+ for(let p=0;p<12;p++)v[p]/=n;
+ const norm=Math.sqrt(v.reduce((s,x)=>s+x*x,0))||1;
+ let best=templates[0],bestScore=-Infinity;
+ for(const t of templates){
+  let dot=0,offTone=0;
+  for(let p=0;p<12;p++){if(t.t[p])dot+=v[p]*(p===t.root?1.22:1);else offTone+=v[p]}
+  const score=dot/(norm*Math.sqrt(3))-offTone*.12;
+  if(score>bestScore){bestScore=score;best=t}
+ }
+ labels.push(best.name);confidence.push(bestScore);
+}
+// Form segments, then merge brief chord guesses into their stronger neighbors.
+let out=[],start=0;
+for(let i=1;i<=labels.length;i++)if(i===labels.length||labels[i]!==labels[start]){
+ out.push({name:labels[start],start:start*hop/sr,end:i*hop/sr,confidence:confidence[Math.min(i-1,confidence.length-1)]});start=i;
+}
+for(let i=0;i<out.length;i++){
+ if(out.length>1&&out[i].end-out[i].start<.72){
+  const j=i===0?1:i===out.length-1?i-1:(out[i-1].end-out[i-1].start>=out[i+1].end-out[i+1].start?i-1:i+1);
+  out[j].start=Math.min(out[j].start,out[i].start);out[j].end=Math.max(out[j].end,out[i].end);out.splice(i,1);i=-1;
+ }
+}
+const merged=[];for(const s of out){if(merged.length&&merged[merged.length-1].name===s.name){merged[merged.length-1].end=s.end;merged[merged.length-1].confidence=(merged[merged.length-1].confidence+s.confidence)/2}else merged.push({...s})}
+return{segments:merged,duration:samples.length/sr}
+}
 const time=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
-function render(r){segments=r.segments;$('chords').replaceChildren();const roots=Array(12).fill(0);for(const s of segments){const t=templates.find(x=>x.name===s.name);if(t)roots[t.root]+=s.end-s.start}$('key').textContent=roots.some(Boolean)?notes[roots.indexOf(Math.max(...roots))]+' (perkiraan)':'Belum pasti';$('duration').textContent='Durasi '+time(r.duration);for(const s of segments){const card=document.createElement('div');card.className='chord';const title=document.createElement('strong');title.textContent=s.name;const quality=document.createElement('small');quality.textContent=s.name.endsWith('m')?'Minor · estimasi':'Mayor · estimasi';const tm=document.createElement('time');tm.textContent=time(s.start)+' – '+time(s.end);const seek=document.createElement('button');seek.className='secondary';seek.textContent='Putar dari sini';seek.onclick=()=>{$('audio').currentTime=s.start;$('audio').play().catch(()=>{})};card.append(title,quality,tm,seek);$('chords').append(card)}$('results').classList.remove('hidden');$('results').scrollIntoView({behavior:'smooth',block:'start'})}
+const fingerings={
+'C':{name:'C',frets:[-1,3,2,0,1,0]},'Cm':{name:'Cm',frets:[-1,3,5,5,4,3]},
+'C♯':{name:'C♯',frets:[-1,4,6,6,6,4]},'C♯m':{name:'C♯m',frets:[-1,4,6,6,5,4]},
+'D':{name:'D',frets:[-1,-1,0,2,3,2]},'Dm':{name:'Dm',frets:[-1,-1,0,2,3,1]},
+'D♯':{name:'D♯',frets:[-1,6,8,8,8,6]},'D♯m':{name:'D♯m',frets:[-1,6,8,8,7,6]},
+'E':{name:'E',frets:[0,2,2,1,0,0]},'Em':{name:'Em',frets:[0,2,2,0,0,0]},
+'F':{name:'F',frets:[1,3,3,2,1,1]},'Fm':{name:'Fm',frets:[1,3,3,1,1,1]},
+'F♯':{name:'F♯',frets:[2,4,4,3,2,2]},'F♯m':{name:'F♯m',frets:[2,4,4,2,2,2]},
+'G':{name:'G',frets:[3,2,0,0,0,3]},'Gm':{name:'Gm',frets:[3,5,5,3,3,3]},
+'G♯':{name:'G♯',frets:[4,6,6,5,4,4]},'G♯m':{name:'G♯m',frets:[4,6,6,4,4,4]},
+'A':{name:'A',frets:[-1,0,2,2,2,0]},'Am':{name:'Am',frets:[-1,0,2,2,1,0]},
+'A♯':{name:'A♯',frets:[-1,1,3,3,3,1]},'A♯m':{name:'A♯m',frets:[-1,1,3,3,2,1]},
+'B':{name:'B',frets:[-1,2,4,4,4,2]},'Bm':{name:'Bm',frets:[-1,2,4,4,3,2]}
+};
+function showFingering(name){
+ const f=fingerings[name]||fingerings[name.replace('♯','#')];
+ const board=$('fretboard');board.replaceChildren();
+ if(!f){board.textContent='Diagram belum tersedia untuk chord ini.';return}
+ const grid=document.createElement('div');grid.className='fingers';
+ const min=Math.min(...f.frets.filter(n=>n>0));const shift=min>3?min-1:0;
+ f.frets.forEach((fret,i)=>{
+  const s=document.createElement('div');s.className='string';
+  if(fret===0){const o=document.createElement('span');o.textContent='○';o.style.cssText='position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:13px;color:#d5ffb5';s.append(o)}
+  if(fret===-1){const x=document.createElement('span');x.textContent='×';x.style.cssText='position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:13px;color:#ff8585';s.append(x)}
+  if(fret>0){const dot=document.createElement('span');dot.className='finger';dot.style.setProperty('--fret',String(fret-shift+.5));s.append(dot)}
+  grid.append(s)
+ });
+ board.append(grid);
+ const labels=document.createElement('div');labels.className='stringLabel';['E','A','D','G','B','e'].forEach(x=>{const s=document.createElement('span');s.textContent=x;labels.append(s)});board.append(labels);
+ const cap=document.createElement('p');cap.className='hint';cap.textContent=shift?'Posisi barre sekitar fret '+(shift+1)+'. Simbol × = jangan dibunyikan, ○ = senar terbuka.':'Simbol × = jangan dibunyikan, ○ = senar terbuka.';board.append(cap);
+}
+function render(r){
+ segments=r.segments;$('chords').replaceChildren();
+ const roots=Array(12).fill(0);for(const s of segments){const t=templates.find(x=>x.name===s.name);if(t)roots[t.root]+=s.end-s.start}
+ $('key').textContent=roots.some(Boolean)?notes[roots.indexOf(Math.max(...roots))]+' (perkiraan)':'Belum pasti';
+ $('duration').textContent='Durasi '+time(r.duration);
+ for(const s of segments){
+  const card=document.createElement('div');card.className='chord';card.dataset.start=s.start;card.dataset.end=s.end;
+  const title=document.createElement('strong');title.textContent=s.name;
+  const quality=document.createElement('small');quality.textContent=s.name.endsWith('m')?'Minor · estimasi':'Mayor · estimasi';
+  const tm=document.createElement('time');tm.textContent=time(s.start)+' – '+time(s.end);
+  const seek=document.createElement('button');seek.className='secondary';seek.textContent='Putar dari sini';seek.onclick=()=>{$('audio').currentTime=s.start;$('audio').play().catch(()=>{});updateLiveChord(s.start)};
+  card.append(title,quality,tm,seek);$('chords').append(card);
+ }
+ if(segments.length)updateLiveChord(segments[0].start);
+ $('results').classList.remove('hidden');$('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function updateLiveChord(seconds){
+ let s=segments.find(x=>seconds>=x.start&&seconds<x.end);
+ if(!s&&segments.length)s=segments[segments.length-1];
+ if(!s)return;
+ $('liveName').textContent=s.name;$('liveMeta').textContent='Waktu '+time(s.start)+' · '+time(s.end)+' — chord perkiraan yang terdeteksi';
+ $('liveTitle').textContent='Chord saat ini';showFingering(s.name);
+ document.querySelectorAll('.chord').forEach(card=>{const active=Number(card.dataset.start)===s.start;card.style.borderColor=active?'#a6f36b':'#343943';card.style.background=active?'#1b2518':'#121419'});
+}
+$('audio').addEventListener('timeupdate',()=>{if(segments.length)updateLiveChord($('audio').currentTime)});
 $('analyze').onclick=async()=>{if(!file)return;$('analyze').disabled=true;$('progress').classList.remove('hidden');$('bar').style.width='0%';status('Membaca file audio…');let ctx;try{const bytes=await file.arrayBuffer(),AC=window.AudioContext||window.webkitAudioContext;if(!AC)throw Error('Browser tidak mendukung Web Audio API.');ctx=new AC();const b=await ctx.decodeAudioData(bytes),mono=new Float32Array(b.length);for(let c=0;c<b.numberOfChannels;c++){const d=b.getChannelData(c);for(let i=0;i<b.length;i++)mono[i]+=d[i]/b.numberOfChannels}const target=11025,step=b.sampleRate/target,len=Math.floor(mono.length/step),small=new Float32Array(len);for(let i=0;i<len;i++){const pos=i*step,k=Math.floor(pos),frac=pos-k;small[i]=mono[k]*(1-frac)+(mono[Math.min(k+1,mono.length-1)]||0)*frac}const r=analyze(small,target);$('bar').style.width='100%';render(r);status('Selesai. Periksa chord dengan mendengarkan lagu; algoritma ini belum dapat memisahkan gitar dari vokal/instrumen lain.','good')}catch(e){status(e.message||'File tidak dapat dianalisis. Coba file lain.','bad')}finally{if(ctx)ctx.close().catch(()=>{});$('analyze').disabled=!file;setTimeout(()=>$('progress').classList.add('hidden'),900)}};
 $('copy').onclick=async()=>{const txt=segments.map(s=>time(s.start)+' '+s.name).join('\n');if(!txt)return;try{await navigator.clipboard.writeText(txt);$('copy').textContent='Tersalin ✓';setTimeout(()=>$('copy').textContent='Salin hasil',1500)}catch{status('Salin otomatis tidak tersedia. Pilih chord dan salin secara manual.','bad')}};
 })();
