@@ -39,11 +39,14 @@ for(let f=0;f<frames;f++){
  for(let k=2;k<N/2;k++){
   const hz=k*sr/N;if(hz<65||hz>1400)continue;
   const mag=Math.hypot(re[k],im[k]);if(mag<.00001)continue;
-  const midi=69+12*Math.log2(hz/440),nn=Math.round(midi),d=Math.abs(midi-nn);if(d>.42)continue;
+  const midi=69+12*Math.log2(hz/440),nn=Math.round(midi),d=Math.abs(midi-nn);
+  // Smoothly distribute nearby-bin energy instead of discarding notes when FFT bins fall between semitones.
+  if(d>.52)continue;
   const pc=(nn%12+12)%12;
-  // Give low-register notes more influence: accompaniment bass/root is often more stable than vocal harmonics.
-  const bassWeight=hz<260?1.55:hz<520?1.12:.82;
-  c[pc]+=Math.sqrt(mag)*bassWeight/(1+d*5);
+  // Reduce high harmonics and give bass notes useful, but not overwhelming, weight.
+  const bassWeight=hz<180?1.35:hz<350?1.12:hz<700?.88:.62;
+  const pitchWeight=Math.max(0,1-d/.55);
+  c[pc]+=Math.sqrt(mag)*bassWeight*pitchWeight;
  }
  const sum=c.reduce((a,b)=>a+b,0);raw.push(sum?c.map(v=>v/sum):c);
  if(f%18===0){$('bar').style.width=Math.round(f/frames*90)+'%';if(f%72===0)status('Menganalisis progresi chord… '+Math.round(f/frames*100)+'%')}
@@ -57,9 +60,10 @@ for(let f=0;f<raw.length;f++){
  const norm=Math.sqrt(v.reduce((s,x)=>s+x*x,0))||1;
  let best=templates[0],bestScore=-Infinity;
  for(const t of templates){
-  let dot=0,offTone=0;
-  for(let p=0;p<12;p++){if(t.t[p])dot+=v[p]*(p===t.root?1.22:1);else offTone+=v[p]}
-  const score=dot/(norm*Math.sqrt(3))-offTone*.12;
+  let chordEnergy=0,offTone=0;
+  for(let p=0;p<12;p++){if(t.t[p])chordEnergy+=v[p]*(p===t.root?1.12:1);else offTone+=v[p]}
+  // Reward energy concentrated on the three chord tones and penalize competing notes.
+  const score=chordEnergy/(norm*Math.sqrt(3))-offTone*.20;
   if(score>bestScore){bestScore=score;best=t}
  }
  labels.push(best.name);confidence.push(bestScore);
